@@ -43,6 +43,6 @@ jobs:
           tag="build-$(date +'%Y%m%d-%H%M' -d "$time")"
           message="Auto-Build $(date +'%Y-%m-%d %H:%M' -d "$time")"
           hub release create  -t "$GITHUB_SHA" "$tag" -m "$message" \
-            $(for a in build/*.bin; do echo -a $a; done) 
+            $(for a in bin/*; do echo -a $a; done) 
         env:
           GITHUB_TOKEN: ${{ github.token }}
